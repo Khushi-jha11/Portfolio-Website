@@ -350,6 +350,60 @@
   .timeline-company { font-size: 0.9rem; color: var(--accent); margin-bottom: 0.75rem; }
   .timeline-desc { font-size: 0.88rem; color: var(--text2); line-height: 1.7; max-width: 600px; font-weight: 300; }
 
+  /* CERTIFICATIONS */
+  #certifications { background: var(--bg); }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .cert-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: all 0.25s;
+  }
+  .cert-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
+  .cert-img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: block;
+  }
+  .cert-img:hover { opacity: 0.85; }
+  .cert-modal {
+    display: none;
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(5,5,10,0.9);
+    backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .cert-modal.active { display: flex; }
+  .cert-modal img {
+    max-width: 90vw; max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .cert-modal-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    color: var(--text); font-size: 2rem; cursor: pointer;
+    background: none; border: none; line-height: 1;
+  }
+  .cert-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .cert-issuer { font-size: 0.88rem; color: var(--accent); margin-bottom: 0.3rem; }
+  .cert-date { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+
   /* CONTACT */
   #contact { background: var(--bg); }
   .contact-inner {
@@ -572,10 +626,71 @@
       <p class="timeline-meta">2023 — 2027</p>
       <p class="timeline-role">B.Tech in Computer Science & Engineering</p>
       <p class="timeline-company">SRM IST NCR Campus</p>
-      <p class="timeline-desc">Specialisation in Data Science. Core coursework in Data Structures, Algorithms, DBMS, Operating Systems, Machine Learning, and Web Development.</p>
+      <p class="timeline-desc">Specialisation in Data Science. Core coursework in Data Structures, Algorithms, DBMS, Operating Systems, Machine Learning, and Web Development. <strong style="color: var(--text);">CGPA: 7.68</strong></p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-meta">2022 — 2023</p>
+      <p class="timeline-role">Class XII — PCM with Computer Science</p>
+      <p class="timeline-company">Rosary Senior Secondary School</p>
+      <p class="timeline-desc">Completed higher secondary education with Physics, Chemistry, Mathematics, and Computer Science as core subjects.</p>
     </div>
   </div>
 </section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <p class="section-label">Licenses</p>
+  <h2 class="section-title">Certifications</h2>
+  <p class="section-sub">Courses and certifications I've completed to keep building on my core skills.</p>
+
+  <div class="cert-grid">
+    <div class="cert-card">
+      <img src="certificates/python-udemy.png" alt="Learn Python Programming certificate" class="cert-img" onclick="openCertModal(this.src)">
+      <p class="cert-title">Learn Python Programming — Beginner to Master</p>
+      <p class="cert-issuer">Udemy</p>
+      <p class="cert-date">Issued Oct 2024</p>
+    </div>
+    <div class="cert-card">
+      <img src="certificates/erp-sap.png" alt="ERP using GBI 3.30 on SAP S/4HANA certificate" class="cert-img" onclick="openCertModal(this.src)">
+      <p class="cert-title">Introduction to ERP using GBI 3.30 on SAP S/4HANA</p>
+      <p class="cert-issuer">SRM Institute of Science and Technology (SRMIST)</p>
+      <p class="cert-date">Issued Feb 2026</p>
+    </div>
+    <div class="cert-card">
+      <img src="certificates/graphs-camp.png" alt="Graphs Camp Completion Certificate" class="cert-img" onclick="openCertModal(this.src)">
+      <p class="cert-title">Graphs Camp Completion Certificate</p>
+      <p class="cert-issuer">AlgoUniversity</p>
+    </div>
+    <div class="cert-card">
+      <img src="certificates/nlp-nptel.png" alt="Natural Language Processing NPTEL certificate" class="cert-img" onclick="openCertModal(this.src)">
+      <p class="cert-title">Natural Language Processing</p>
+      <p class="cert-issuer">NPTEL</p>
+      <p class="cert-date">Issued Apr 2026</p>
+    </div>
+    <div class="cert-card">
+      <img src="certificates/ai-beginners-guide.png" alt="Artificial Intelligence Beginners Guide certificate" class="cert-img" onclick="openCertModal(this.src)">
+      <p class="cert-title">Artificial Intelligence Beginners Guide</p>
+      <p class="cert-issuer">Simplilearn</p>
+      <p class="cert-date">Issued Apr 2025</p>
+    </div>
+  </div>
+</section>
+
+<div class="cert-modal" id="certModal" onclick="closeCertModal(event)">
+  <button class="cert-modal-close" onclick="closeCertModal(event)">&times;</button>
+  <img id="certModalImg" src="" alt="Certificate preview">
+</div>
+
+<script>
+  function openCertModal(src) {
+    document.getElementById('certModalImg').src = src;
+    document.getElementById('certModal').classList.add('active');
+  }
+  function closeCertModal(e) {
+    document.getElementById('certModal').classList.remove('active');
+  }
+</script>
 
 <!-- CONTACT -->
 <section id="contact">
