@@ -312,8 +312,8 @@
   .project-link:hover { color: var(--accent); }
   .project-link svg { width: 14px; height: 14px; }
 
-  /* EXPERIENCE */
-  #experience { background: var(--bg2); }
+  /* EXPERIENCE / EDUCATION */
+  #education { background: var(--bg); }
   .timeline { position: relative; padding-left: 2rem; }
   .timeline::before {
     content: '';
@@ -365,35 +365,6 @@
     transition: all 0.25s;
   }
   .cert-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
-  .cert-img {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    margin-bottom: 1rem;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    display: block;
-  }
-  .cert-img:hover { opacity: 0.85; }
-  .cert-modal {
-    display: none;
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(5,5,10,0.9);
-    backdrop-filter: blur(6px);
-    align-items: center; justify-content: center;
-    padding: 2rem;
-  }
-  .cert-modal.active { display: flex; }
-  .cert-modal img {
-    max-width: 90vw; max-height: 85vh;
-    border-radius: 10px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  }
-  .cert-modal-close {
-    position: absolute; top: 1.5rem; right: 2rem;
-    color: var(--text); font-size: 2rem; cursor: pointer;
-    background: none; border: none; line-height: 1;
-  }
   .cert-title {
     font-family: 'Syne', sans-serif;
     font-size: 1rem;
@@ -528,6 +499,14 @@
         <span class="skill-tag">VS Code</span>
         <span class="skill-tag">Chart.js</span>
       </div>
+
+      <p class="section-label" style="margin-top: 2.5rem; margin-bottom: 1.25rem;">Languages known</p>
+      <div class="skills-cloud">
+        <span class="skill-tag accent">Hindi</span>
+        <span class="skill-tag accent">English</span>
+        <span class="skill-tag">Maithili</span>
+        <span class="skill-tag">German</span>
+      </div>
     </div>
   </div>
 </section>
@@ -614,8 +593,25 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience" style="background: var(--bg2);">
+  <p class="section-label">Work Experience</p>
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">Where I've applied what I've learned.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-meta">Jul 2026 — Present</p>
+      <p class="timeline-role">Data Science Intern</p>
+      <p class="timeline-company">The Developers Arena</p>
+      <p class="timeline-desc">Currently working on data-driven projects, applying data analysis and machine learning techniques to real-world problems as part of the Data Science team.</p>
+    </div>
+  </div>
+</section>
+
 <!-- EDUCATION -->
-<section id="experience">
+<section id="education">
   <p class="section-label">Education</p>
   <h2 class="section-title">Education</h2>
   <p class="section-sub">My academic journey so far.</p>
@@ -646,51 +642,31 @@
 
   <div class="cert-grid">
     <div class="cert-card">
-      <img src="certificates/python-udemy.png" alt="Learn Python Programming certificate" class="cert-img" onclick="openCertModal(this.src)">
       <p class="cert-title">Learn Python Programming — Beginner to Master</p>
       <p class="cert-issuer">Udemy</p>
       <p class="cert-date">Issued Oct 2024</p>
     </div>
     <div class="cert-card">
-      <img src="certificates/erp-sap.png" alt="ERP using GBI 3.30 on SAP S/4HANA certificate" class="cert-img" onclick="openCertModal(this.src)">
       <p class="cert-title">Introduction to ERP using GBI 3.30 on SAP S/4HANA</p>
       <p class="cert-issuer">SRM Institute of Science and Technology (SRMIST)</p>
       <p class="cert-date">Issued Feb 2026</p>
     </div>
     <div class="cert-card">
-      <img src="certificates/graphs-camp.png" alt="Graphs Camp Completion Certificate" class="cert-img" onclick="openCertModal(this.src)">
       <p class="cert-title">Graphs Camp Completion Certificate</p>
       <p class="cert-issuer">AlgoUniversity</p>
     </div>
     <div class="cert-card">
-      <img src="certificates/nlp-nptel.png" alt="Natural Language Processing NPTEL certificate" class="cert-img" onclick="openCertModal(this.src)">
       <p class="cert-title">Natural Language Processing</p>
       <p class="cert-issuer">NPTEL</p>
       <p class="cert-date">Issued Apr 2026</p>
     </div>
     <div class="cert-card">
-      <img src="certificates/ai-beginners-guide.png" alt="Artificial Intelligence Beginners Guide certificate" class="cert-img" onclick="openCertModal(this.src)">
       <p class="cert-title">Artificial Intelligence Beginners Guide</p>
       <p class="cert-issuer">Simplilearn</p>
       <p class="cert-date">Issued Apr 2025</p>
     </div>
   </div>
 </section>
-
-<div class="cert-modal" id="certModal" onclick="closeCertModal(event)">
-  <button class="cert-modal-close" onclick="closeCertModal(event)">&times;</button>
-  <img id="certModalImg" src="" alt="Certificate preview">
-</div>
-
-<script>
-  function openCertModal(src) {
-    document.getElementById('certModalImg').src = src;
-    document.getElementById('certModal').classList.add('active');
-  }
-  function closeCertModal(e) {
-    document.getElementById('certModal').classList.remove('active');
-  }
-</script>
 
 <!-- CONTACT -->
 <section id="contact">
